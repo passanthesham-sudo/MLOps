@@ -1,0 +1,22 @@
+data:
+  path: data/raw/train.csv
+  test_size: 0.2
+  random_state: 42
+  numeric_features:
+    - Age
+    - Fare
+    - SibSp
+    - Parch
+  categorical_features:
+    - Sex
+    - Embarked
+    - Pclass
+
+logistic_regression:
+  max_iter: 1000
+  C: 1.0
+
+random_forest:
+  n_estimators: 100
+  max_depth: 6
+  min_samples_leaf: 2

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+venv/
+*.pkl
+*.joblib
+data/raw/*.csv
+data/processed/
+.DS_Store
+*.log

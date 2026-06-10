@@ -1,0 +1,56 @@
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+      - src/prepare.py
+      - data/raw/train.csv
+    params:
+      - params.yaml:
+        - data
+    outs:
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
+
+  train_logistic_regression:
+    cmd: python src/train.py --model logistic_regression
+    deps:
+      - src/train.py
+      - src/feature_engineering.py
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
+    params:
+      - params.yaml:
+        - data.random_state
+        - data.numeric_features
+        - data.categorical_features
+        - logistic_regression
+    outs:
+      - models/logistic_regression.pkl
+    metrics:
+      - metrics/logistic_regression.json:
+          cache: false
+
+  train_random_forest:
+    cmd: python src/train.py --model random_forest
+    deps:
+      - src/train.py
+      - src/feature_engineering.py
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
+    params:
+      - params.yaml:
+        - data.random_state
+        - data.numeric_features
+        - data.categorical_features
+        - random_forest
+    outs:
+      - models/random_forest.pkl
+    metrics:
+      - metrics/random_forest.json:
+          cache: false
