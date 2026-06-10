@@ -1,0 +1,67 @@
+meta {
+  name: Predict Batch (5 passengers)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/predict
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "passengers": [
+      {
+        "pclass": 1,
+        "sex": "female",
+        "age": 29,
+        "sib_sp": 0,
+        "parch": 0,
+        "fare": 211.3,
+        "embarked": "S"
+      },
+      {
+        "pclass": 3,
+        "sex": "male",
+        "age": 22,
+        "sib_sp": 1,
+        "parch": 0,
+        "fare": 7.25,
+        "embarked": "S"
+      },
+      {
+        "pclass": 2,
+        "sex": "female",
+        "age": 31,
+        "sib_sp": 1,
+        "parch": 1,
+        "fare": 26.25,
+        "embarked": "S"
+      },
+      {
+        "pclass": 1,
+        "sex": "male",
+        "age": 35,
+        "sib_sp": 0,
+        "parch": 0,
+        "fare": 52.0,
+        "embarked": "C"
+      },
+      {
+        "pclass": 3,
+        "sex": "female",
+        "age": null,
+        "sib_sp": 0,
+        "parch": 2,
+        "fare": 15.5,
+        "embarked": "Q"
+      }
+    ]
+  }
+}
