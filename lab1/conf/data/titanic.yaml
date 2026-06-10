@@ -1,0 +1,10 @@
+path: data/raw/train.csv
+numeric_features:
+  - Age
+  - Fare
+  - SibSp
+  - Parch
+categorical_features:
+  - Sex
+  - Embarked
+  - Pclass

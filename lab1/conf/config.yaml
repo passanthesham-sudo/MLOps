@@ -1,0 +1,11 @@
+defaults:
+  - data: titanic
+  - model: logistic_regression
+  - _self_
+
+training:
+  test_size: 0.2
+  random_state: 42
+
+paths:
+  models_dir: models
